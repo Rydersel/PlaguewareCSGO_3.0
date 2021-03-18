@@ -225,7 +225,6 @@ void run_changer()
 	ImGui::PushStyleColor(ImGuiCol_FrameBg, ImVec4(0.0f, 0.0f, 0.0f, 0.0f));
 
 	ImGui::BeginGroup();
-	
 	ImGui::BeginChild("Case opening manager", ImVec2(ImGui::GetWindowSize().x - 60, ImGui::GetWindowSize().y - 100));
 	ImGui::SliderFloat("Knife chance (more = better items)", &fakeopening_chances::knife_chance, 0.f, 100.f);
 	ImGui::SliderFloat("Stattrak chance", &fakeopening_chances::statstark_chance, 0.f, 100.f);

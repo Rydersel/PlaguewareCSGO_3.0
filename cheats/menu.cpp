@@ -2372,6 +2372,7 @@ void c_menu::SkinChanger()
 
 		//skinchanger 
 		if (pages == 2)
+			padding(10, 30);
 			run_changer();
 		static bool drugs = false;
 		if (pages == 4)

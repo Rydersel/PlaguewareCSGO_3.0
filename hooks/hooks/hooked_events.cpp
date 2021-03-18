@@ -213,7 +213,7 @@ void C_HookedEvents::FireGameEvent(IGameEvent* event)
 
 			if (g_cfg.player.enable && g_cfg.esp.kill_effect)
 				g_ctx.local()->m_flHealthShotBoostExpirationTime() = m_globals()->m_curtime + g_cfg.esp.kill_effect_duration;
-
+			//incrementally playing .wav 
 			if (g_cfg.esp.killsound)
 			{
 				auto headshot = event->GetBool(crypt_str("headshot"));
@@ -320,7 +320,7 @@ void C_HookedEvents::FireGameEvent(IGameEvent* event)
 					m_surface()->PlaySound_(crypt_str("stapler.wav"));
 					break;
 				case 5:
-					m_surface()->PlaySound_(crypt_str("bell.wav"));
+					m_surface()->PlaySound_(crypt_str("AmoungUs.wav"));
 					break;
 				case 6:
 					m_surface()->PlaySound_(crypt_str("flick.wav"));

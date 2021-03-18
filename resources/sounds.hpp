@@ -21,8 +21,8 @@ __forceinline void setup_sounds()
 	fwrite(stapler, sizeof(unsigned char), 105522, file);
 	fclose(file);
 
-	file = fopen(crypt_str("csgo\\sound\\bell.wav"), crypt_str("wb"));
-	fwrite(bell, sizeof(unsigned char), 42154, file);
+	file = fopen(crypt_str("csgo\\sound\\AmoungUs.wav"), crypt_str("wb"));
+	fwrite(AmoungUs, sizeof(unsigned char), 42154, file);
 	fclose(file);
 
 	file = fopen(crypt_str("csgo\\sound\\flick.wav"), crypt_str("wb"));
