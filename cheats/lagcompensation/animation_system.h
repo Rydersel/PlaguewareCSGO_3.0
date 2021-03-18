@@ -44,7 +44,7 @@ class resolver
 {
 	player_t* player = nullptr;
 	adjust_data* player_record = nullptr;
-
+	int sideDetect(player_t* player, adjust_data* record);
 	bool side = false;
 	bool fake = false;
 	bool was_first_bruteforce = false;

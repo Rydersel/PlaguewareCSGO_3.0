@@ -296,6 +296,67 @@ void resolver::resolve_yaw()
 		}
 	}
 }
+float __fastcall AngleDiff(float destAngle, float srcAngle)
+{
+	/*float delta;
+
+	delta = fmodf(destAngle - srcAngle, 360.0f);
+	if (destAngle > srcAngle)
+	{
+		if (delta >= 180)
+			delta -= 360;
+	}
+	else
+	{
+		if (delta <= -180)
+			delta += 360;
+	}
+	return delta;*/
+	float delta = destAngle - srcAngle;
+
+	if (delta < -180)
+		delta += 360;
+	else if (delta > 180)
+		delta -= 360;
+
+	return delta;
+}
+
+//side detection inspired by ot
+int resolver::sideDetect(player_t* player, adjust_data* record)
+{
+	int m_flSide;
+	if (player->m_vecVelocity().Length2D() <= 0.1)
+	{
+		if (record->layers[3].m_flWeight == 0.0 && record->layers[3].m_flCycle == 0.0)
+		{
+			m_flSide = 2 * AngleDiff(player->get_animation_state()->m_flEyeYaw, player->get_animation_state()->m_flGoalFeetYaw) <= 0.0f ? -1 : 1;
+		}
+	}
+	else if (!(record->layers[12].m_flWeight * 1000.0f) && (record->layers[6].m_flWeight * 1000.0f) == (player->get_animlayers()[6].m_flWeight * 1000.f))
+	{
+		AnimationLayer moveLayers[3][13];
+
+		memcpy(moveLayers[0], player->get_animlayers(), sizeof(AnimationLayer) * 13);
+		memcpy(moveLayers[1], player->get_animlayers(), sizeof(AnimationLayer) * 13);
+		memcpy(moveLayers[2], player->get_animlayers(), sizeof(AnimationLayer) * 13);
+
+		float DeltaFirst = abs(record->layers[6].m_flPlaybackRate - moveLayers[0][6].m_flPlaybackRate);
+		float DeltaSecond = abs(record->layers[6].m_flPlaybackRate - moveLayers[2][6].m_flPlaybackRate);
+		float DeltaThird = abs(record->layers[6].m_flPlaybackRate - moveLayers[1][6].m_flPlaybackRate);
+
+		if (DeltaFirst < DeltaSecond || DeltaThird <= DeltaSecond || (DeltaSecond * 1000.0f))
+		{
+			if (DeltaFirst >= DeltaThird && DeltaSecond > DeltaThird && !(DeltaThird * 1000.0f))
+				m_flSide = 1; // Right side
+		}
+		else
+			m_flSide = -1; // Left side
+	}
+
+	return m_flSide;
+}
+
 
 float resolver::resolve_pitch()
 {
