@@ -68,7 +68,21 @@ void eventlogs::events(IGameEvent* event)
 	};
 
 
-	
+	if (g_cfg.misc.events_to_log[EVENTLOG_VOTE] && !strcmp(event->GetName(), crypt_str("vote_cast")))
+	{
+		auto userid = event->GetInt(crypt_str("entityid"));
+
+		player_info_t userid_info;
+
+		if (!m_engine()->GetPlayerInfo(userid, &userid_info))
+			return;
+
+		std::stringstream ss;
+		ss << userid_info.szName << crypt_str(" Voted: ") << (event->GetInt(crypt_str("vote_option")) == 0 ? crypt_str("YES") : crypt_str("NO"));
+
+		add(ss.str());
+
+	}
 	if (g_cfg.misc.events_to_log[EVENTLOG_HIT] && !strcmp(event->GetName(), crypt_str("player_hurt")))
 	{
 		auto userid = event->GetInt(crypt_str("userid")), attacker = event->GetInt(crypt_str("attacker"));

@@ -314,7 +314,8 @@ const char* events[] =
 {
 	"Player hits",
 	"Items",
-	"Bomb"
+	"Bomb",
+	"VOTE"
 };
 
 const char* grenades[] =

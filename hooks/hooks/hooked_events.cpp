@@ -19,7 +19,7 @@ bool weapon_is_aim(const std::string& weapon)
 	return weapon.find(crypt_str("decoy")) == std::string::npos && weapon.find(crypt_str("flashbang")) == std::string::npos &&
 		weapon.find(crypt_str("hegrenade")) == std::string::npos && weapon.find(crypt_str("inferno")) == std::string::npos &&
 		weapon.find(crypt_str("molotov")) == std::string::npos && weapon.find(crypt_str("smokegrenade")) == std::string::npos;
-}
+}		
 void ForceItemUpdate(weapon_t* zWeapon)
 {
 	zWeapon->PostDataUpdate(DATA_UPDATE_CREATED);
@@ -492,7 +492,7 @@ void C_HookedEvents::RegisterSelf()
 {
 	m_iDebugId = EVENT_DEBUG_ID_INIT;
 	auto eventmanager = m_eventmanager();
-
+	eventmanager->AddListener(this, crypt_str("vote_cast"), false);
 	eventmanager->AddListener(this, crypt_str("player_footstep"), false);
 	eventmanager->AddListener(this, crypt_str("player_hurt"), false);
 	eventmanager->AddListener(this, crypt_str("player_death"), false);
@@ -505,6 +505,7 @@ void C_HookedEvents::RegisterSelf()
 	eventmanager->AddListener(this, crypt_str("bomb_begindefuse"), false);
 	eventmanager->AddListener(this, crypt_str("bomb_beginplant"), false);
 
+	g_ctx.globals.events.emplace_back(crypt_str("vote_cast"));
 	g_ctx.globals.events.emplace_back(crypt_str("player_footstep"));
 	g_ctx.globals.events.emplace_back(crypt_str("player_hurt"));
 	g_ctx.globals.events.emplace_back(crypt_str("player_death"));
