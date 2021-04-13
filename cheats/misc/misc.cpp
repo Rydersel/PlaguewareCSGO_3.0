@@ -1,4 +1,4 @@
-// This is an independent project of an individual developer. Dear PVS-Studio, please check it.
+﻿// This is an independent project of an individual developer. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java: http://www.viva64.com
 
 #include "misc.h"
@@ -7,7 +7,7 @@
 #include "..\visuals\world_esp.h"
 #include "prediction_system.h"
 #include "logs.h"
-
+#include "CGrenadeAPI\CGrenadeAPI.cpp"
 #if RELEASE
 #if BETA
 #define VERSION crypt_str("Plagueware [beta] | ")
@@ -23,6 +23,18 @@ std::string t()
 {
 	return SteamFriends->GetPersonaName();
 }
+int StringToWeapon(std::string weapon) {
+	if (!strcmp(weapon.c_str(), "smokegrenade"))
+		return 45;
+	if (!strcmp(weapon.c_str(), "flashbang"))
+		return 43;
+	if (!strcmp(weapon.c_str(), "incgrenade"))
+		return 46; // TODO: ????????
+}
+
+
+
+
 
 void misc::watermark()
 {

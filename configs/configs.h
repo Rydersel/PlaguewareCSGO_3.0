@@ -575,6 +575,7 @@ struct Config
 		bool inventory_access;
 		bool rank_reveal;
 		bool clantag_spammer;
+		bool ingame_grenade;
 		bool buybot_enable;
 		int buybot1;
 		int buybot2;

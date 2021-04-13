@@ -7,6 +7,7 @@ class player_t;
 class weapon_t;
 class CUserCmd;
 
+
 struct shot_info
 {
 	bool should_log = false;
@@ -69,7 +70,9 @@ class ctx_t  //-V730
 public:
 	bool test_hooks = false;
 	struct Globals  //-V730
-	{			
+	{	
+		bool should_update_grenade_help = false;
+		bool should_updated_grenade_help = false;
 		bool loaded_script = false;
 		bool focused_on_input = false;
 		bool double_tap_fire = false;

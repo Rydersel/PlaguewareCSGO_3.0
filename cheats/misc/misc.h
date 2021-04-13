@@ -4,6 +4,7 @@ class misc : public singleton <misc>
 {
 public:
 	void watermark();
+	void grenade_help();
 	void NoDuck(CUserCmd* cmd);
 	void ChatSpamer();
 	void AutoCrouch(CUserCmd* cmd);

@@ -96,6 +96,7 @@ void __fastcall hooks::hooked_painttraverse(void* ecx, void* edx, vgui::VPANEL p
 		g_ctx.globals.should_update_playerresource = true;
 		g_ctx.globals.should_update_gamerules = true;
 		g_ctx.globals.should_update_radar = true;
+		g_ctx.globals.should_update_grenade_help = true;
 		g_ctx.globals.kills = 0;
 		g_ctx.shots.clear();
 		otheresp::get().hitmarker.hurt_time = FLT_MIN;
@@ -110,7 +111,7 @@ void __fastcall hooks::hooked_painttraverse(void* ecx, void* edx, vgui::VPANEL p
 
 		g_ctx.globals.should_update_weather = true;
 		g_ctx.globals.m_networkable = nullptr;
-
+		g_ctx.globals.should_update_grenade_help = false;
 		g_cfg.player_list.players.clear();
 
 		misc::get().double_tap_enabled = false;
@@ -154,6 +155,7 @@ void __fastcall hooks::hooked_painttraverse(void* ecx, void* edx, vgui::VPANEL p
 			return font;
 		};
 		//g_pSurface->SetFontGlyphSet(fonts.esp_main, "Tahoma", 12, 500, 0, 0, FONTFLAG_DROPSHADOW);
+		fonts[GRENADE_HELP] = create_font(crypt_str("CrashNumberingGothic"), 15, FW_HEAVY, FONTFLAG_ANTIALIAS | FONTFLAG_DROPSHADOW);
 		fonts[LOGS] = create_font(crypt_str("Tahoma"), 12, FW_MEDIUM, FONTFLAG_DROPSHADOW);
 		fonts[ESP] = create_font(crypt_str("Smallest Pixel-7"), 11, FW_MEDIUM, FONTFLAG_OUTLINE);
 		fonts[NAME] = create_font(crypt_str("Verdana"), 12, FW_MEDIUM, FONTFLAG_ANTIALIAS | FONTFLAG_DROPSHADOW);
@@ -214,7 +216,7 @@ void __fastcall hooks::hooked_painttraverse(void* ecx, void* edx, vgui::VPANEL p
 
 			if (weapon->is_grenade() && g_cfg.esp.grenade_prediction && g_cfg.player.enable)
 				GrenadePrediction::get().Paint();
-
+				
 			if (g_cfg.player.enable && g_cfg.esp.removals[REMOVALS_SCOPE] && g_ctx.globals.scoped && weapon->is_sniper())
 			{
 				static int w, h;

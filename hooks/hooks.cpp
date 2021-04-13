@@ -29,11 +29,6 @@
 #include "../cheats/tabs.h"
 #include "../cheats/bindsfont.h"
 #include "../cheats/WeaponFonts.h"
-#include "../cheats/fuck/faprolight.h"
-#include "../cheats/fuck/hashes.h"
-#include "../cheats/fuck/logo_font.h"
-#include "../cheats/fuck/menu_font.h"
-
 #include <rifk merge\features\d3d_esp.h>
 
 
@@ -246,8 +241,11 @@ namespace hooks
 
 		if (g_ctx.globals.should_update_radar)
 			Radar::get().OnMapLoad(m_engine()->GetLevelNameShort(), device);
+		
 		else
 			Radar::get().Render();
+
+
 
 		ImGui::EndFrame();
 		ImGui::Render();

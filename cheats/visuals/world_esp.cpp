@@ -62,6 +62,37 @@ void worldesp::paint_traverse()
 	}
 }
 
+
+void DrawBeamPaw(Vector src, Vector end, Color color)
+{
+	BeamInfo_t beamInfo;
+	beamInfo.m_nType = TE_BEAMPOINTS; //TE_BEAMPOINTS
+	beamInfo.m_vecStart = src;
+	beamInfo.m_vecEnd = end;
+	beamInfo.m_pszModelName = "sprites/glow01.vmt";
+	beamInfo.m_pszHaloName = "sprites/glow01.vmt";
+	beamInfo.m_flHaloScale = 3.0;
+	beamInfo.m_flWidth = 4.5f;
+	beamInfo.m_flEndWidth = 4.5f;
+	beamInfo.m_flFadeLength = 0.5f;
+	beamInfo.m_flAmplitude = 0;
+	beamInfo.m_flBrightness = 255.f;
+	beamInfo.m_flSpeed = 0.0f;
+	beamInfo.m_nStartFrame = 0.0;
+	beamInfo.m_flFrameRate = 0.0;
+	beamInfo.m_flRed = color.r();
+	beamInfo.m_flGreen = color.g();
+	beamInfo.m_flBlue = color.b();
+	beamInfo.m_nSegments = 2;
+	beamInfo.m_bRenderable = true;
+	beamInfo.m_flLife = 1;
+	beamInfo.m_nFlags = FBEAM_ONLYNOISEONCE | FBEAM_NOTILE | FBEAM_HALOBEAM | FBEAM_ENDVISIBLE; //FBEAM_ONLYNOISEONCE | FBEAM_NOTILE | FBEAM_HALOBEAM
+	Beam_t* myBeam = m_viewrenderbeams()->CreateBeamPoints(beamInfo);
+	if (myBeam)
+		m_viewrenderbeams()->DrawBeam(myBeam);
+}
+
+
 void worldesp::skybox_changer()
 {
 	static auto load_skybox = reinterpret_cast<void(__fastcall*)(const char*)>(util::FindSignature(crypt_str("engine.dll"), crypt_str("55 8B EC 81 EC ? ? ? ? 56 57 8B F9 C7 45")));

@@ -3,6 +3,8 @@
 
 #include "autowall.h"
 
+
+
 bool autowall::is_breakable_entity(IClientEntity* e)
 {
 	if (!e || !e->EntIndex())

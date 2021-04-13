@@ -19,6 +19,7 @@ enum GradientType
 enum FONT_INDEX 
 {
 	LOGS,
+	GRENADE_HELP,
 	ESP,
 	NAME,
 	SUBTABWEAPONS,
