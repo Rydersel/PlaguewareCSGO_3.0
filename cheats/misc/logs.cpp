@@ -208,7 +208,7 @@ void eventlogs::events(IGameEvent* event)
 void eventlogs::add(std::string text, bool full_display)
 {
 	
-	Game_Msg(text.c_str()); //hehe shonax
+	Game_Msg(text.c_str()); 
 	
 	
 	
@@ -223,12 +223,12 @@ void eventlogs::add(std::string text, bool full_display)
 
 #if RELEASE
 #if BETA
-		m_cvar()->ConsoleColorPrintf(g_cfg.misc.log_color, crypt_str("[ SHONAX-PROJECT BETA ] ")); //-V807
+		m_cvar()->ConsoleColorPrintf(g_cfg.misc.log_color, crypt_str("[ Plagueware] ")); //-V807
 #else
-		m_cvar()->ConsoleColorPrintf(g_cfg.misc.log_color, crypt_str("[ SHONAX-PROJECT ] "));
+		m_cvar()->ConsoleColorPrintf(g_cfg.misc.log_color, crypt_str("[ Plagueware ] "));
 #endif
 #else
-		m_cvar()->ConsoleColorPrintf(g_cfg.misc.log_color, crypt_str("[ shonax ] ")); //-V807
+		m_cvar()->ConsoleColorPrintf(g_cfg.misc.log_color, crypt_str("[ Plague ] ")); //-V807
 #endif
 
 		m_cvar()->ConsoleColorPrintf(Color::White, text.c_str());
@@ -244,14 +244,14 @@ void eventlogs::add(std::string text, bool full_display)
 
 #if RELEASE
 #if BETA
-		auto log = crypt_str("[ \x0CSHONAX-PROJECT BETA \x01] ") + text;
+		auto log = crypt_str("[ \x0CPlagueware \x01] ") + text;
 		chat->chat_print(log.c_str());
 #else
-		auto log = crypt_str("[ \x0CSHONAX-PROJECT \x01] ") + text;
+		auto log = crypt_str("[ \x0CPlagueware \x01] ") + text;
 		chat->chat_print(log.c_str());
 #endif
 #else
-		auto log = crypt_str("[ \x0Cshonax \x01] ") + text;
+		auto log = crypt_str("[ \x0CPlague \x01] ") + text;
 		chat->chat_print(log.c_str());
 #endif
 	}

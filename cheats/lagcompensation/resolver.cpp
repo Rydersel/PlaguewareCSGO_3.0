@@ -323,6 +323,7 @@ float __fastcall AngleDiff(float destAngle, float srcAngle)
 }
 
 //side detection inspired by ot
+/*
 int resolver::sideDetect(player_t* player, adjust_data* record)
 {
 	int m_flSide;
@@ -356,7 +357,7 @@ int resolver::sideDetect(player_t* player, adjust_data* record)
 
 	return m_flSide;
 }
-
+*/
 
 float resolver::resolve_pitch()
 {

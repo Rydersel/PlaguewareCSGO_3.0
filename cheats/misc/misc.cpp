@@ -10,12 +10,12 @@
 
 #if RELEASE
 #if BETA
-#define VERSION crypt_str("SHONAX-PROJECT [beta] | ")
+#define VERSION crypt_str("Plagueware [beta] | ")
 #else
-#define VERSION crypt_str("SHONAX-PROJECT | ")
+#define VERSION crypt_str("Plagueware | ")
 #endif
 #else
-#define VERSION crypt_str("shonax project | ")
+#define VERSION crypt_str("Plagueware | ")
 #endif
 
 
@@ -86,10 +86,10 @@ void misc::ChatSpamer()
 
 	static std::string chatspam[] = 
 	{ 
-		crypt_str("SHONAX-PROJECT - stay with us or lose the game."),
-		crypt_str("Get good. Get SHONAX-PROJECT."),
-		crypt_str("SHONAX-PROJECT - just the best."),
-		crypt_str("Go to another level with SHONAX-PROJECT."),
+		crypt_str("Plagueware"),
+		crypt_str("Plagueware"),//Fill in later
+		crypt_str("Plagueware"),
+		crypt_str("Plagueware"),
 	};
 
 	static auto lastspammed = 0;
