@@ -6,6 +6,8 @@ DISCLAIMER: I am not responsible for anything done with this code. It is for edu
 
 # Credit:
 Developed by Rydersel and Niko Obama
+
 Version Merge - Shonax
+
 Networking - Harold(https://github.com/ZECHEESELORD)
 
