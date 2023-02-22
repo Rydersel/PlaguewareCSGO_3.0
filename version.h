@@ -1,2 +1,2 @@
-#define RELEASE 0
-#define BETA 1
+#define RELEASE 3
+#define BETA 0
