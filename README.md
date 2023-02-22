@@ -1,4 +1,4 @@
-# PlaguewarCsgo3.0
+# Plagueware CSGO Client 3.0
 
 Made public since code is 2 years old
 
