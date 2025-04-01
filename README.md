@@ -55,7 +55,7 @@ This timeline outlines the execution flow of the research code from initial setu
 
 
 
-## Related Vulnerabilities Studied
+## Vulnerabilities Used
 
 | CVE ID        | Description                                        |
 |---------------|----------------------------------------------------|
